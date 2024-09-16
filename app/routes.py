@@ -1,5 +1,6 @@
 from flask import render_template, url_for, flash, redirect, request, Blueprint
 from flask_login import login_user, logout_user, login_required, current_user
+from flask_socketio import SocketIO, emit
 from app import db
 from app.services import check_user_credentials
 from app.forms import LoginForm
@@ -48,3 +49,4 @@ def chat():
             "chat.html", form=form, user_input=user_input, ai_response=ai_response
         )
     return render_template("chat.html", form=form)
+
